@@ -65,4 +65,10 @@
 
 .counter-wrapper{
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-icon{
+  position: absolute;
 }
