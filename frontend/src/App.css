@@ -71,11 +71,26 @@
   border-radius: 50%;
 }
 
+.lyric-outer{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .lyric-wrapper{
   background-color: #EDEDED;
   padding: 3rem;
   display: flex;
   justify-content: center;
+  gap: 2rem;
   align-items: center;
   font-size: 2rem;
 }
+
+.gameplay-wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+

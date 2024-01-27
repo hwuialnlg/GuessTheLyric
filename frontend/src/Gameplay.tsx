@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 
 function Gameplay(){
     return (
-        <div className="home-wrapper">
+        <div className="">
             <GameplayNavBar/>
 
 
@@ -16,7 +16,7 @@ function GameplayNavBar(){
     let counter = 10;
     let lyric = "Trust Me Bro";
     return (
-        <div>
+        <div className='gameplay-wrapper'>
             <div className='gameplay-navbar'>
                 <div className='counter-icon'>
                     <p className='green'>{counter}</p>
@@ -25,16 +25,18 @@ function GameplayNavBar(){
                 <HomeIcon sx={{ fontSize: 70 }} className='home-icon white'/>
             </div>
 
-            <div className='lyric-wrapper'>
-                <p>{lyric}</p>
+            <div className='lyric-outer'>
+                <div className='lyric-wrapper'>
+                    <p>{lyric}</p>
 
-                <TextField
-                id="standard-search"
-                label=""
-                type="search"
-                variant="standard"
-                />
+                    <TextField
+                    id="standard-search"
+                    label=""
+                    type="search"
+                    variant="standard"
+                    />
 
+                </div>
             </div>
         </div>
     )
