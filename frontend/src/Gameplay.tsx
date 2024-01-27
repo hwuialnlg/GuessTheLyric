@@ -1,5 +1,5 @@
 import HomeIcon from '@mui/icons-material/Home';
-import CircleIcon from '@mui/icons-material/Circle';
+import TextField from '@mui/material/TextField';
 
 function Gameplay(){
     return (
@@ -13,20 +13,29 @@ function Gameplay(){
 }
 
 function GameplayNavBar(){
-    let counter = 0;
+    let counter = 10;
+    let lyric = "Trust Me Bro";
     return (
-        <div className='gameplay-navbar'>
-            <div className='counter-icon'>
-                <div className='counter-wrapper'>
-                    <CircleIcon sx={{ fontSize: 70 }} className='white'/>
-                </div>
-                <div className='counter-wrapper'>
+        <div>
+            <div className='gameplay-navbar'>
+                <div className='counter-icon'>
                     <p className='green'>{counter}</p>
                 </div>
+                <p className='green'>Guess The Lyric</p>
+                <HomeIcon sx={{ fontSize: 70 }} className='home-icon white'/>
             </div>
-            <p className='green'>Guess The Lyric</p>
-            <HomeIcon sx={{ fontSize: 70 }} className='home-icon white'/>
 
+            <div className='lyric-wrapper'>
+                <p>{lyric}</p>
+
+                <TextField
+                id="standard-search"
+                label=""
+                type="search"
+                variant="standard"
+                />
+
+            </div>
         </div>
     )
 }
