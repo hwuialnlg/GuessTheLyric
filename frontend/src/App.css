@@ -1,0 +1,74 @@
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.home-wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+}
+
+.navbar{
+  background-color: #030303;
+  color: #49DB60;
+  height: 12rem;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameplay-navbar{
+  background-color: #030303;
+  height: 12rem;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.white{
+  color: white;
+}
+
+.green{
+  color: #49DB60;
+
+}
+
+.menu-items{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.menu-option{
+  background-color: #EDEDED;
+  font-size: 2.5rem;
+  padding: 1rem;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.menu-option:hover{
+  cursor: pointer;
+}
+
+.counter-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-icon{
+  position: absolute;
+}
