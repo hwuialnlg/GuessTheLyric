@@ -1,29 +1,22 @@
 import json
-from os import access
-from urllib import request, parse
 from secret import *
+import requests
+import spotipy
+from spotipy.oauth2 import SpotifyOAuth
+from spotipy import util
 
-data = parse.urlencode({
-    'grant_type': 'client_credentials',
-    'client_id': CLIENT_ID,
-    'client_secret': CLIENT_PASS,
-}).encode()
+SCOPE = "user-library-read"
+# sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=SCOPE))
 
-req =  request.Request(AUTH_URL, data=data) # this will make the method "POST"
-resp = request.urlopen(req)
+# token = util.prompt_for_user_token(USERNAME)
 
-json_data = json.load(resp)
+urn = 'spotify:artist:3jOstUTkEu2JkjvRdBA5Gu'
+sp = spotipy.Spotify()
 
-print(json_data)
+artist = sp.artist(urn)
+print(artist)
 
-TOKEN_TYPE = json_data["token_type"]
-ACCESS_TOKEN = json_data["access_token"]
+user = sp.user('plamere')
+print(user)
 
-# auth_string = str(base64.b64encode((CLIENT_ID + ":" + CLIENT_PASS).encode("utf-8")), "utf-8")
 
-access_data = parse.urlencode({'Authorization': "Bearer " + ACCESS_TOKEN}).encode()
-
-req_artist = request.Request("https://api.spotify.com/v1/me/top/artists", data=access_data)                       
-resp_artists = request.urlopen(req_artist)
-
-json_artists = json.load(resp_artists)
