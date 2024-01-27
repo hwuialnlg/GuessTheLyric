@@ -1,13 +1,15 @@
 
-import './App.css'
-import Home from './Home'
+import './App.css';
+import Home from './Home';
+import Gameplay from './Gameplay';
 
 function App() {
 
   return (
     <>
       <div>
-        <Home/>
+        <Gameplay/>
+        {/* <Home/> */}
       </div>
     </>
   )
