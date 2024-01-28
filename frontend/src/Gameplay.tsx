@@ -19,16 +19,18 @@ function GameplayNavBar(){
     
     const [counter, setCounter] = useState(10);
     let lyric = "Trust Me Bro";
-    const location = useLocation();
-    const { data } = location.state;
+    const {state} = useLocation();
+    console.log(state);
+    if (state != null){
+        const {lyrics} = state;
+        console.log(lyrics);
 
+    }
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCounter(counter - 1);
         }, 1000);
-
-        console.log(data);
 
         return () => clearInterval(interval);
     }, [counter]);
