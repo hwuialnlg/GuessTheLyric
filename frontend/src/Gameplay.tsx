@@ -29,8 +29,8 @@ function GameplayNavBar(){
     const [score, setScore] = useState(0);
     const [artist, setArtist] = useState(randomElement[0]);
     const [song, setSong] = useState(randomElement[1]);
-
-    let lyric = "Trust Me Bro";
+    const [lyric, setLyric] = useState(randomElement[2].slice(0, randomElement[3][0]));
+    // let lyric = "Trust Me Bro";
   
 
     // https://stackoverflow.com/a/4550514/21989952    
@@ -38,7 +38,7 @@ function GameplayNavBar(){
     return (
         <div className='gameplay-wrapper'>
             <div className='gameplay-navbar'>
-                <Counter lyricsArray={lyricsArray} setSong={setSong} setArtist={setArtist}/>
+                <Counter lyricsArray={lyricsArray} setSong={setSong} setArtist={setArtist} setLyric={setLyric}/>
                 <p className='green'>Guess The Lyric</p>
                 <Link to="/home"><HomeIcon sx={{ fontSize: 70 }} className='home-icon white'/></Link>                
                 
@@ -88,6 +88,7 @@ const Counter = (props: any) => {
         const randomElement = props.lyricsArray[Math.floor(Math.random() * props.lyricsArray.length)]; //picking random ele from array
         props.setArtist(randomElement[0]);
         props.setSong(randomElement[1]);
+        props.setLyric(randomElement[2]);
         setCounter(10);
       }
 
