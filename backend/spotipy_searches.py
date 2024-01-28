@@ -60,17 +60,18 @@ def search_by_playlist(playlist_url: str) -> [(str)]:
         else playlist_url.split('/')[-1]
 
     songs = [] # list to store tuples of song names and the artist
-    results = SP.playlist(playlist_id) # Spotipy querying results from a playlist
+    tracks = SP.playlist_items(playlist_id) # Spotipy querying results from a playlist
 
-    tracks = results['tracks']
     while tracks: # Checks if there are still tracks to iterate over
         for track in tracks['items']:
             songs.append((track['track']['name'], track['track']['artists'][0]['name']))
         tracks = SP.next(tracks) # If the playlist has more than 100 songs, go the next page of songs to get
     return songs
+
+    # def get_artist_pic()
     
 if __name__ == "__main__":
     # print(search_by_artist('keshi', 30))
-    print(search_by_x_artists(('keshi', 'dpr ian'), 30))
-    # print(search_by_playlist('https://open.spotify.com/playlist/3c8sZa0lI8eWU9aJpr3w2M'))
+    # print(search_by_x_artists(('keshi', 'dpr ian'), 30))
+    print(search_by_playlist('https://open.spotify.com/playlist/3c8sZa0lI8eWU9aJpr3w2M'))
     # print(search_by_playlist('https://open.spotify.com/playlist/5iUayjyzc0JuftsOHIaWb1?si=d62809d69cf2406c'))
