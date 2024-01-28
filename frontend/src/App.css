@@ -1,0 +1,96 @@
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.home-wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+}
+
+.navbar{
+  background-color: #030303;
+  color: #49DB60;
+  height: 12rem;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameplay-navbar{
+  padding: 2rem;
+  background-color: #030303;
+  height: 6rem;
+  font-size: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.white{
+  color: white;
+}
+
+.green{
+  color: #49DB60;
+
+}
+
+.menu-items{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.menu-option{
+  background-color: #EDEDED;
+  font-size: 2.5rem;
+  padding: 1rem;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.menu-option:hover{
+  cursor: pointer;
+}
+
+.counter-icon{
+  background-color: #F3F3F3;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.lyric-outer{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lyric-wrapper{
+  background-color: #EDEDED;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.gameplay-wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
