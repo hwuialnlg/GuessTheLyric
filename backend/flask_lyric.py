@@ -20,11 +20,11 @@ def send_data():
         artist = receive[0][0]
         songs = search_by_artist(artist)
 
-        for song in songs:
+        for song, artist in songs:
             big_data.append(get_game_lyrics(artist, get_lyrics(artist, song), song))
 
     else:
-        lst_of_tuple = search_by_x_artists(tuple(receive))
+        lst_of_tuple = search_by_x_artists(tuple(receive[0]))
 
         for song, artist in lst_of_tuple:
             big_data.append(get_game_lyrics(artist, get_lyrics(artist, song), song))
