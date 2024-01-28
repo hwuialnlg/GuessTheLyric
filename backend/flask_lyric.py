@@ -9,13 +9,15 @@ CORS(app)
 
 @app.route("/lyrics", methods=["POST"])
 def send_data():
-
+    '''
+    Flask connection sending backend lyric, artist, and song data to frontend
+    '''
     receive = request.json['message'] # will receive artist(s)
     
     print(receive)
 
     big_data = []
-# [['Nav', 'The Weekend'], '6']
+
     if len(receive[0]) == 1:
         artist = receive[0][0]
         songs = search_by_artist(artist)

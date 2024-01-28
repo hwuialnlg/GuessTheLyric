@@ -25,7 +25,7 @@
 .gameplay-navbar{
   padding: 2rem;
   background-color: #030303;
-  height: 6rem;
+  height: 25vh;
   font-size: 4rem;
   display: flex;
   justify-content: space-evenly;
@@ -73,30 +73,11 @@
   border-radius: 50%;
 }
 
-.lyric-outer{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.lyric-wrapper{
-  background-color: #EDEDED;
-  padding: 3rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  align-items: center;
-  font-size: 2rem;
-}
-
 .gameplay-wrapper{
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
-
 
 .input-box{
   display: flex;
@@ -169,4 +150,37 @@
 
 .aboutUs {
   width: 50vw;
+}
+
+.lyric-left-side {
+  height: 100%;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: pink;
+  padding: 3rem;
+  
+}
+
+.lyric-outer{
+  height: 75vh;
+  /* width: 65vw; */
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  /* justify-content: center; */
+}
+
+.lyric-wrapper{
+  background-color: #EDEDED;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  font-size: 2rem;
+  height: 100%;
+  width: 75vw;
 }
