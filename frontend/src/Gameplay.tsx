@@ -49,7 +49,7 @@ function GameplayNavBar(){
                 <div className='test'>
                     <div className="lyric-left-side">
                         <img className="lyric-artist-image" src=""></img>
-                        <p className="lyric-score">{score}</p>
+                        <p className="lyric-score">score: {score}</p>
                         <p className="lyric-artist-song">{artist} - {song}</p>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ const Counter = (props: any) => {
     return (
         <div className='counter-icon'>
         {/* https://stackoverflow.com/a/51915955/21989952 */}
-        <p className='green'>{counter > 0 ? (counter < 10 ? "0" + counter : counter) : "00"}</p>
+        {counter <= 3 ? <p className='red'>{counter > 0 ? (counter < 10 ? "0" + counter : counter) : "00"}</p> : <p className='green'>{counter > 0 ? (counter < 10 ? "0" + counter : counter) : "00"}</p>}
         </div>
     )
 }

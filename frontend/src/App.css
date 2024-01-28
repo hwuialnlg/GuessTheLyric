@@ -192,3 +192,7 @@
   display: flex;
   flex-direction: column;
 }
+
+.red{
+  color: #EE4B2B
+}
