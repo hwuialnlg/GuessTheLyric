@@ -18,6 +18,10 @@ function Gameplay(){
 function GameplayNavBar(){
     
     const [counter, setCounter] = useState(10);
+    const [score, setScore] = useState(0);
+    const [artist, setArtist] = useState("temp artist");
+    const [song, setSong] = useState("temp song");
+
     let lyric = "Trust Me Bro";
     const {state} = useLocation();
     console.log(state);
@@ -52,14 +56,22 @@ function GameplayNavBar(){
             </div>
 
             <div className='lyric-outer'>
+
+                <div className="lyric-left-side">
+                    <img className="lyric-artist-image" src=""></img>
+                    <p className="lyric-score">{score}</p>
+                    <p className="lyric-artist-song">{artist} - {song}</p>
+                </div>
+
+
                 <div className='lyric-wrapper'>
                     <p>{lyric}</p>
 
                     <TextField
-                    id="standard-search"
-                    label=""
-                    type="search"
-                    variant="standard"
+                        id="standard-search"
+                        label=""
+                        type="search"
+                        variant="standard"
                     />
 
                 </div>
