@@ -5,7 +5,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_PASS)
 SP = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-def search_by_artist(artist: str, limit: int) -> [(str)]:
+def search_by_artist(artist: str, limit: int = 10) -> [(str)]:
     '''
     Retrieve a list of song names made by the inputted artist. Songs will be retrieved from Spotify.
 
@@ -26,7 +26,7 @@ def search_by_artist(artist: str, limit: int) -> [(str)]:
             songs.append((track['name'], track['artists'][0]['name']))
     return songs
 
-def search_by_x_artists(artists: (str), limit: int) -> [(str)]:
+def search_by_x_artists(artists: (str), limit: int = 10) -> [(str)]:
     '''
     Retrieve a list of song names made by any of the inputted artists. Songs will be retrieved from Spotify.
 
@@ -71,6 +71,6 @@ def search_by_playlist(playlist_url: str) -> [(str)]:
     
 if __name__ == "__main__":
     # print(search_by_artist('keshi', 30))
-    # print(search_by_x_artists(('keshi', 'dpr ian'), 30))
+    print(search_by_x_artists(('keshi', 'dpr ian'), 30))
     # print(search_by_playlist('https://open.spotify.com/playlist/3c8sZa0lI8eWU9aJpr3w2M'))
-    print(search_by_playlist('https://open.spotify.com/playlist/5iUayjyzc0JuftsOHIaWb1?si=d62809d69cf2406c'))
+    # print(search_by_playlist('https://open.spotify.com/playlist/5iUayjyzc0JuftsOHIaWb1?si=d62809d69cf2406c'))
