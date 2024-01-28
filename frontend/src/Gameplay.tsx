@@ -1,6 +1,7 @@
 import HomeIcon from '@mui/icons-material/Home';
 import TextField from '@mui/material/TextField';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Gameplay(){
     return (
@@ -38,7 +39,8 @@ function GameplayNavBar(){
                     <p className='green'>{counter > 0 ? (counter < 10 ? "0" + counter : counter) : "00"}</p>
                 </div>
                 <p className='green'>Guess The Lyric</p>
-                <HomeIcon sx={{ fontSize: 70 }} className='home-icon white'/>
+                <Link to="/home"><HomeIcon sx={{ fontSize: 70 }} className='home-icon white'/></Link>                
+                
             </div>
 
             <div className='lyric-outer'>

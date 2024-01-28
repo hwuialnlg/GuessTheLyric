@@ -49,6 +49,7 @@
   align-items: center;
   gap: 1rem;
   justify-content: space-around;
+
 }
 
 .menu-option{
@@ -58,6 +59,7 @@
   width: 80%;
   display: flex;
   justify-content: center;
+
 
 }
 

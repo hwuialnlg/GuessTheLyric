@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import { Link } from 'react-router-dom';
 
 function Home(){
     // const options = ["Play, Leaderboards, About"];
@@ -8,7 +9,8 @@ function Home(){
 
             <div className="menu-items">
                 <div className="menu-option">
-                    <p>Play</p>
+                    
+                <Link to="/play" style={{ color: 'inherit', textDecoration: 'inherit'}}><p>Play</p></Link>                
                 </div>
 
                 <div className="menu-option">
