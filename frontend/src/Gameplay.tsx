@@ -46,12 +46,13 @@ function GameplayNavBar(){
 
             <div className='lyric-outer'>
 
-                <div className="lyric-left-side">
-                    <img className="lyric-artist-image" src=""></img>
-                    <p className="lyric-score">{score}</p>
-                    <p className="lyric-artist-song">{artist} - {song}</p>
+                <div className='test'>
+                    <div className="lyric-left-side">
+                        <img className="lyric-artist-image" src=""></img>
+                        <p className="lyric-score">{score}</p>
+                        <p className="lyric-artist-song">{artist} - {song}</p>
+                    </div>
                 </div>
-
 
                 <div className='lyric-wrapper'>
                     <p>{lyric}</p>
