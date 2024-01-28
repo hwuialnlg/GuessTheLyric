@@ -6,16 +6,16 @@ import random
 def get_lyrics(artist: str, song_name: str) -> list:
     '''
     Parameters:
-    artist: str
-    song_name: str
+    artist type str, which is the artist's name
+    song_name type str, which is the song's name
 
     Returns:
-    List object of lyrics
+    List object of lyrics from the song
 
+    Explanation:
     Sends a request to lyrics.ovh API to get song lyrics
     Processes lyrics and whitespaces
     '''
-
     lyrics = []
 
     r = requests.get(f"https://api.lyrics.ovh/v1/{artist}/{song_name}")
@@ -32,18 +32,35 @@ def get_lyrics(artist: str, song_name: str) -> list:
 
         for i in range(ct):
             lyrics.remove("")
+
+        for i in range(len(lyrics)):
+            lyrics[i] = lyrics[i].rstrip()
     
     return lyrics
 
 
-def get_game_lyrics(lyrics: list) -> str:
+def get_game_lyrics(artist: str, lyrics: list[str], song_name: str) -> tuple:
+    '''
+    Parameters:
+    artist type str, the artist of the song
+    lyrics type lists, contains all lyrics of the song
+    song_name type str, song name 
 
+    Returns:
+    Tuple containing song name, the chunk of lyric, and list of indicies to remove from chunk
+
+    Explanation:
+    This function looks for a lyric chunk that is greater than size two to be used 
+    and process to remove extra unnecessary characters. This function puts together
+    the helper function to return necessary data for the game.
+    
+    '''
     if lyrics != []:
 
         lyric_str_len = 0
 
         while lyric_str_len <= 2:
-            i = random.randint(0, len(lyrics))
+            i = random.randint(0, len(lyrics)-1)
 
             temp_lyric = lyrics[i]
 
@@ -53,61 +70,92 @@ def get_game_lyrics(lyrics: list) -> str:
             
             lyric_str_len = len(temp_lyric.split())
 
-        if len(lyric_str_len) == 3 or len(lyric_str_len) == 4:
+        if lyric_str_len == 3 or lyric_str_len == 4:
+            # print(3, 4)
+            index = _which_chunk(1, temp_lyric)
 
-            index = which_chunk(1, lyric_str_len)
-
-        elif len(lyric_str_len) == 5:
-
+        elif lyric_str_len == 5:
+            # print(5)
             index = _randomness(5, temp_lyric)
+            # print(index)
 
-        elif len(lyric_str_len) >= 6:
-
+        elif lyric_str_len >= 6:
+            # print(6)
             index = _randomness(6, temp_lyric)
 
-    return (temp_lyric, index)
+    return (artist, song_name, temp_lyric, index)
 
 
-def _randomness(size_str, string):
+def _randomness(size_str: int, string: str) -> list[int]:
+    '''
+    Parameters:
+    size_str type int, size of the lyric chunk
+    string type str, the lyric chunk itself
 
-    chance = random.randint(0, 2)
+    Returns:
+    List of integers that contain where to remove from
+
+    Explanation:
+    This helper function decides how many times to remove
+    from a lyric chunk given the size. The randomness is at
+    certain sizes the function will potentially remove more words.
+    '''
+    chance = random.randint(0, 1)
 
     index = []
 
     if (chance == 0):
-        return [random.randint(0, size_str)]
+        # print("REMOVE 1")
+        return [random.randint(0, size_str-1)]
 
     elif (chance == 1):
         # ALWAYS REMOVES 2, BUT IF LEN 6 CAN REMOVE 3
+        # print("TEST 2")
         if size_str == 5:
-            index = which_chunk(2, len(string))
+            index = _which_chunk(2, string)
            
         else:
-            chance = random.randint(0, 2) # chance to remove 3
+            chance = random.randint(0, 1) # chance to remove 3
+            # print("TEST 1")
             if (chance == 0):
-                index = which_chunk(2, len(string))
+                index = _which_chunk(2, string)
             else:
-                index = which_chunk(3, len(string))
+                # print("TEST")
+                index = _which_chunk(3, string)
 
     return index
 
 
-def which_chunk(remove_size: int, size_str):
+def _which_chunk(remove_size: int, string: str) -> list[int]:
+    '''
+    Parameters: 
+    remove_size type int, how much words to remove
+    size_str type int, what the length of the lyric chunk is
 
+    Returns:
+    a list of indicies to remove from the lyric chunk
+
+    Explanation:
+    This helper function randomly determines whether to remove from the
+    beginning, middle, or end of the lyric chunk. 
+    '''
     index = []
 
-    i = random.randint(0, 3)
+    i = random.randint(0, 2)
 
     if (i == 0):
+        # print("FRONT")
         # remove from the front
         index = [i for i in range(remove_size)]
 
     elif (i == 1):
         # remove from the middle
-        index = [(size_str // 2) + i for i in range(remove_size)]
+        # print("MIDDLE")
+        index = [((len(string.split())-1) // 2) + i for i in range(remove_size)]
 
     else:
         # remove from the back
+        # print("END")
         index = [(i + 1) * -1 for i in range(remove_size)]
 
     return index
@@ -125,3 +173,5 @@ def which_chunk(remove_size: int, size_str):
 
 
 lst = get_lyrics("keshi", "understand")
+
+print(get_game_lyrics("keshi", lst, "understand"))
