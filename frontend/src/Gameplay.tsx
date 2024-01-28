@@ -17,39 +17,25 @@ function Gameplay(){
 
 function GameplayNavBar(){
     
-    const [counter, setCounter] = useState(10);
     const [score, setScore] = useState(0);
     const [artist, setArtist] = useState("temp artist");
     const [song, setSong] = useState("temp song");
+    let lyricsArray = null;
 
     let lyric = "Trust Me Bro";
     const {state} = useLocation();
-    console.log(state);
+
     if (state != null){
         const {lyrics} = state;
-        console.log(lyrics);
-
+        lyricsArray =lyrics.serverResponse;
     }
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCounter(counter - 1);
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, [counter]);
-
-    if (counter === 0) {
-        setCounter(10);
-      }
+    console.log(lyricsArray);
 
     return (
         <div className='gameplay-wrapper'>
             <div className='gameplay-navbar'>
-                <div className='counter-icon'>
-                    {/* https://stackoverflow.com/a/51915955/21989952 */}
-                    <p className='green'>{counter > 0 ? (counter < 10 ? "0" + counter : counter) : "00"}</p>
-                </div>
+                <Counter/>
                 <p className='green'>Guess The Lyric</p>
                 <Link to="/home"><HomeIcon sx={{ fontSize: 70 }} className='home-icon white'/></Link>                
                 
@@ -76,6 +62,29 @@ function GameplayNavBar(){
 
                 </div>
             </div>
+        </div>
+    )
+}
+
+function Counter(){
+    const [counter, setCounter] = useState(10);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCounter(counter - 1);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [counter]);
+
+    if (counter === 0) {
+        setCounter(10);
+      }
+
+    return (
+        <div className='counter-icon'>
+        {/* https://stackoverflow.com/a/51915955/21989952 */}
+        <p className='green'>{counter > 0 ? (counter < 10 ? "0" + counter : counter) : "00"}</p>
         </div>
     )
 }

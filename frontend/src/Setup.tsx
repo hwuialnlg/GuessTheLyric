@@ -71,7 +71,7 @@ function Setup(){
 
                 <div className="setup-button-group">
                     {/* https://stackoverflow.com/a/71375996/21989952 */}
-                        <Button variant="contained"color="success" size="large" onClick={handleSetUp}>
+                        <Button variant="contained"color="success" size="large" onClick={ () => handleSetUp() }>
                         Play
                         </Button>
 
