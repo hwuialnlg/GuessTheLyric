@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from "react";
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Setup(){
     const [artists, setArtists] = useState("");
@@ -62,10 +63,12 @@ function Setup(){
                     <Button variant="contained"color="success" size="large" onClick={handleSetUp}>
                     Play
                     </Button>
-
-                    <Button variant="contained" size="large" color="error">
+                    <Link to="/home"> <Button variant="contained" size="large" color="error">
                     Quit
                     </Button>
+                    </Link>                
+
+
                 </div>
         </div>
         </div>
