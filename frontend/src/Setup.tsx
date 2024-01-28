@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from "react";
+import axios from 'axios';
 
 function Setup(){
     const [artists, setArtists] = useState("");
@@ -14,6 +15,18 @@ function Setup(){
       const handleMaxSongs = (e: any) => {
         setMaxSongs(e.target.value);
       };
+
+    const handleSetUp = async () => {
+        let artistArray = artists.split("\n");
+
+        try {
+            const response = await axios.post('http://127.0.0.1:5000/lyrics', { message: artistArray });
+            let serverResponse = response.data.response;
+            console.log(serverResponse);
+          } catch (error) {
+            console.error("Error getting server response: ", error);
+          }
+    }
 
     return (
 
@@ -46,9 +59,7 @@ function Setup(){
                 </div>
 
                 <div className="setup-button-group">
-                    <Button variant="contained"color="success" size="large" onClick={
-                        () => console.log(artists + maxSongs)
-                        }>
+                    <Button variant="contained"color="success" size="large" onClick={handleSetUp}>
                     Play
                     </Button>
 

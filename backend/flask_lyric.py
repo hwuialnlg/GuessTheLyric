@@ -1,14 +1,16 @@
 from flask import Flask, jsonify, request
 from LyricAPI import get_game_lyrics, get_lyrics
 from spotipy_searches import *
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/api/lyrics", methods=["POST"])
+@app.route("/lyrics", methods=["POST"])
 def send_data():
 
-    receive = request.json # will receive artist(s)
+    receive = request.json['message'] # will receive artist(s)
     
     print(receive)
 
@@ -28,5 +30,7 @@ def send_data():
             big_data.append(get_game_lyrics(artist, get_lyrics(artist, song), song))
     
 
-    return jsonify(big_data)
+    return jsonify({'response': big_data})
 
+if __name__ == '__main__':
+    app.run(debug=True)
