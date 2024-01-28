@@ -5,13 +5,13 @@ import { useState } from "react";
 
 function Setup(){
     const [artists, setArtists] = useState("");
-    const [maxSongs, setMaxSongs] = useState("");
+    const [maxSongs, setMaxSongs] = useState("6");
 
-    const handleArtists = (e) => {
+    const handleArtists = (e: any) => {
         setArtists(e.target.value);
       };
     
-      const handleMaxSongs = (e) => {
+      const handleMaxSongs = (e: any) => {
         setMaxSongs(e.target.value);
       };
 
@@ -37,7 +37,7 @@ function Setup(){
                     id="outlined-number"
                     label="Max Number of Songs"
                     type="number"
-                    defaultValue="6"
+                    defaultValue={maxSongs}
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -46,7 +46,9 @@ function Setup(){
                 </div>
 
                 <div className="setup-button-group">
-                    <Button variant="contained"color="success" size="large">
+                    <Button variant="contained"color="success" size="large" onClick={
+                        () => console.log(artists + maxSongs)
+                        }>
                     Play
                     </Button>
 
