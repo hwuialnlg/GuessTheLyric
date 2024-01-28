@@ -100,4 +100,4 @@ if __name__ == "__main__":
     # print(search_by_playlist('https://open.spotify.com/playlist/3c8sZa0lI8eWU9aJpr3w2M'))
     # print(search_by_playlist('https://open.spotify.com/playlist/5iUayjyzc0JuftsOHIaWb1?si=d62809d69cf2406c'))
     # get_artist_pic('newjeans')
-    # print(get_artist_pics({'newjeans', 'keshi'}))
+    print(get_artist_pics({'newjeans', 'keshi'}))
