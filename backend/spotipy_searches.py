@@ -44,7 +44,7 @@ def search_by_x_artists(artists: (str), limit: int) -> [(str)]:
         songs.extend(current_artist_songs)
     return songs
 
-def search_by_playlist(playlist_url: str) -> [str]:
+def search_by_playlist(playlist_url: str) -> [(str)]:
     '''
     Retrieve a list of song names from a user inputted Spotify playlist.
 
