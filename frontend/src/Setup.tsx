@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 
 function Setup(){
     const [artists, setArtists] = useState("");
-    const [maxSongs, setMaxSongs] = useState("10");
+    const [maxSongs, setMaxSongs] = useState("6");
+    const [lyricData, setLyricData] = useState("");
 
     const handleArtists = (e: any) => {
         setArtists(e.target.value);
@@ -23,7 +24,9 @@ function Setup(){
         try {
             const response = await axios.post('http://127.0.0.1:5000/lyrics', { message: [artistArray, maxSongs]});
             let serverResponse = response.data.response;
-            console.log(serverResponse);
+            setLyricData(serverResponse);
+            
+
           } catch (error) {
             console.error("Error getting server response: ", error);
           }
@@ -60,12 +63,17 @@ function Setup(){
                 </div>
 
                 <div className="setup-button-group">
-                    <Button variant="contained"color="success" size="large" onClick={handleSetUp}>
-                    Play
-                    </Button>
-                    <Link to="/home"> <Button variant="contained" size="large" color="error">
-                    Quit
-                    </Button>
+                    {/* https://stackoverflow.com/a/71375996/21989952 */}
+                    <Link to={`/play`} state={{lyricData}}>
+                        <Button variant="contained"color="success" size="large" onClick={handleSetUp}>
+                        Play
+                        </Button>
+                    </Link>                
+
+                    <Link to="/home"> 
+                        <Button variant="contained" size="large" color="error">
+                        Quit
+                        </Button>
                     </Link>                
 
 

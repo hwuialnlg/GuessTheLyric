@@ -2,6 +2,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import TextField from '@mui/material/TextField';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 
 function Gameplay(){
     return (
@@ -22,11 +23,16 @@ function GameplayNavBar(){
     const [song, setSong] = useState("temp song");
 
     let lyric = "Trust Me Bro";
+    const location = useLocation();
+    const { data } = location.state;
+
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCounter(counter - 1);
         }, 1000);
+
+        console.log(data);
 
         return () => clearInterval(interval);
     }, [counter]);
