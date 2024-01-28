@@ -15,7 +15,7 @@
 .navbar{
   background-color: #030303;
   color: #49DB60;
-  height: 12rem;
+  height: 25vh;
   font-size: 4rem;
   display: flex;
   justify-content: center;
@@ -128,5 +128,11 @@
 .set-up-artist-box{
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.aboutUsContent {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
