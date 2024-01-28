@@ -1,8 +1,20 @@
 import Navbar from "./components/Navbar";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useState } from "react";
 
 function Setup(){
+    const [artists, setArtists] = useState("");
+    const [maxSongs, setMaxSongs] = useState("");
+
+    const handleArtists = (e) => {
+        setArtists(e.target.value);
+      };
+    
+      const handleMaxSongs = (e) => {
+        setMaxSongs(e.target.value);
+      };
+
     return (
 
         <div className="set-up-wrapper">
@@ -18,6 +30,7 @@ function Setup(){
                     placeholder="Placeholder"
                     multiline
                     variant="standard"
+                    onChange={handleArtists}
                     />
 
                     <TextField
@@ -27,7 +40,9 @@ function Setup(){
                     defaultValue="6"
                     InputLabelProps={{
                         shrink: true,
-                    }}/>
+                    }}
+                    onChange={handleMaxSongs}
+                    />
                 </div>
 
                 <div className="setup-button-group">
