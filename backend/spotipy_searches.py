@@ -41,7 +41,12 @@ def search_by_x_artists(artists: (str), limit: int) -> [str]:
         all_songs.extend(songs)
     return all_songs
 
-
+def search_by_playlist(playlist_url: str) -> [str]:
+    playlist_id = playlist_url.split('/')[-1]
+    results = SP.playlist(playlist_id)
+    print(results['tracks'])
+    
 if __name__ == "__main__":
-    print(search_by_artist('keshi', 30))
-    print(search_by_x_artists(('keshi', 'dpr ian'), 30))
+    # print(search_by_artist('keshi', 30))
+    # print(search_by_x_artists(('keshi', 'dpr ian'), 30))
+    search_by_playlist('https://open.spotify.com/playlist/3c8sZa0lI8eWU9aJpr3w2M')
