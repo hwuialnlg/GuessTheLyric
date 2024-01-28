@@ -16,26 +16,29 @@ function Gameplay(){
 }
 
 function GameplayNavBar(){
-    
-    const [score, setScore] = useState(0);
-    const [artist, setArtist] = useState("temp artist");
-    const [song, setSong] = useState("temp song");
-    let lyricsArray = null;
-
-    let lyric = "Trust Me Bro";
     const {state} = useLocation();
+    let lyricsArray = null;
 
     if (state != null){
         const {lyrics} = state;
         lyricsArray =lyrics.serverResponse;
     }
 
-    console.log(lyricsArray);
+    const randomElement = lyricsArray[Math.floor(Math.random() * lyricsArray.length)]; //picking random ele from array
+
+    const [score, setScore] = useState(0);
+    const [artist, setArtist] = useState(randomElement[0]);
+    const [song, setSong] = useState(randomElement[1]);
+
+    let lyric = "Trust Me Bro";
+  
+
+    // https://stackoverflow.com/a/4550514/21989952    
 
     return (
         <div className='gameplay-wrapper'>
             <div className='gameplay-navbar'>
-                <Counter/>
+                <Counter lyricsArray={lyricsArray} setSong={setSong} setArtist={setArtist}/>
                 <p className='green'>Guess The Lyric</p>
                 <Link to="/home"><HomeIcon sx={{ fontSize: 70 }} className='home-icon white'/></Link>                
                 
@@ -66,18 +69,24 @@ function GameplayNavBar(){
     )
 }
 
-function Counter(){
+const Counter = (props: any) => {
     const [counter, setCounter] = useState(10);
 
     useEffect(() => {
+        
         const interval = setInterval(() => {
             setCounter(counter - 1);
         }, 1000);
 
-        return () => clearInterval(interval);
+        return () => 
+        clearInterval(interval);
+        
     }, [counter]);
 
     if (counter === 0) {
+        const randomElement = props.lyricsArray[Math.floor(Math.random() * props.lyricsArray.length)]; //picking random ele from array
+        props.setArtist(randomElement[0]);
+        props.setSong(randomElement[1]);
         setCounter(10);
       }
 
