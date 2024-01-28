@@ -59,6 +59,8 @@ def get_game_lyrics(artist: str, lyrics: list[str], song_name: str) -> tuple:
 
         lyric_str_len = 0
 
+        temp_lyric = None
+
         while lyric_str_len <= 2:
             i = random.randint(0, len(lyrics)-1)
 
@@ -82,6 +84,10 @@ def get_game_lyrics(artist: str, lyrics: list[str], song_name: str) -> tuple:
         elif lyric_str_len >= 6:
             # print(6)
             index = _randomness(6, temp_lyric)
+
+    # print(lyrics) 
+            
+    # print(temp_lyric, index)
 
     return (artist, song_name, temp_lyric, index)
 
@@ -156,7 +162,9 @@ def _which_chunk(remove_size: int, string: str) -> list[int]:
     else:
         # remove from the back
         # print("END")
-        index = [(i + 1) * -1 for i in range(remove_size)]
+        # index = [(i + 1) * -1 for i in range(remove_size)]
+
+        index = [len(string.split()) - 1 - i for i in range(remove_size)]
 
     return index
 
@@ -172,6 +180,6 @@ def _which_chunk(remove_size: int, string: str) -> list[int]:
 #     return indicies
 
 
-lst = get_lyrics("keshi", "understand")
+# lst = get_lyrics("keshi", "understand")
 
-print(get_game_lyrics("keshi", lst, "understand"))
+# print(get_game_lyrics("keshi", lst, "understand"))

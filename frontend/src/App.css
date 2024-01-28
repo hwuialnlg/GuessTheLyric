@@ -15,7 +15,7 @@
 .navbar{
   background-color: #030303;
   color: #49DB60;
-  height: 12rem;
+  height: 25vh;
   font-size: 4rem;
   display: flex;
   justify-content: center;
@@ -49,6 +49,7 @@
   align-items: center;
   gap: 1rem;
   justify-content: space-around;
+
 }
 
 .menu-option{
@@ -58,6 +59,7 @@
   width: 80%;
   display: flex;
   justify-content: center;
+
 
 }
 
@@ -94,3 +96,77 @@
   flex-direction: column;
 }
 
+
+
+.input-box{
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.setup-button-group{
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+
+}
+
+.set-up-wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;}
+
+.set-up-content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.set-up-artist-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .aboutUsContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.mainLayer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.topLayer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#EDEDED;
+  background-color: #030303;
+  height: 25vh;
+  width: 100vw;
+  font-size: xx-large;
+}
+
+.bottomLayer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;  
+}
+
+.usJPG {
+  width: 50vw;
+  height: 40vh;
+}
+
+.aboutUs {
+  width: 50vw;
+}
