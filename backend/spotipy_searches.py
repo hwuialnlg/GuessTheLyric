@@ -68,10 +68,36 @@ def search_by_playlist(playlist_url: str) -> [(str)]:
         tracks = SP.next(tracks) # If the playlist has more than 100 songs, go the next page of songs to get
     return songs
 
-    # def get_artist_pic()
+def get_artist_pic(artist: str) -> str:
+    '''
+    Retrieve a URL of the artist's Spotify profile picture.
+
+    Args:
+        artist: string representing the artist name to look for
+    
+    Returns:
+        A string representing a URL to the artist's Spotify profile picture.
+    '''
+    return SP.search(artist, type="artist")['artists']['items'][0]['images'][0]['url']
+
+def get_artist_pics(artists: {str}) -> dict[str, str]:
+    '''
+    Retrieve a dictionary of the artists associated to a URL to their Spotify profile picture.
+
+    Args:
+        artists: set of strings representing the artist names to look for
+    
+    Returns:
+        A dictionary of the artists associated to a URL to their Spotify profile picture.
+    '''
+    return {artist.lower(): get_artist_pic(artist) for artist in artists}
+        
+
     
 if __name__ == "__main__":
     # print(search_by_artist('keshi', 30))
     # print(search_by_x_artists(('keshi', 'dpr ian'), 30))
-    print(search_by_playlist('https://open.spotify.com/playlist/3c8sZa0lI8eWU9aJpr3w2M'))
+    # print(search_by_playlist('https://open.spotify.com/playlist/3c8sZa0lI8eWU9aJpr3w2M'))
     # print(search_by_playlist('https://open.spotify.com/playlist/5iUayjyzc0JuftsOHIaWb1?si=d62809d69cf2406c'))
+    # get_artist_pic('newjeans')
+    # print(get_artist_pics({'newjeans', 'keshi'}))
