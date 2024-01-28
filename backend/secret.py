@@ -6,3 +6,5 @@ SQL_NAME = "root"
 SQL_INSTANCE = "principal-bird-412522:us-west2:root"
 SQL_PASS = "*4|)t2SeG{`L^b|["
 SQL_ADDR = "34.94.22.1"
+
+test = "none"
