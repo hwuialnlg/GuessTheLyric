@@ -1,0 +1,47 @@
+import Navbar from "./components/Navbar";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
+function Setup(){
+    return (
+
+        <div className="set-up-wrapper">
+            <Navbar/>
+            <div className="set-up-content">
+                <div className="set-up-artist-box">
+                    <p>Instructions: For the artists input, you can add 1 to 5 artist names. Seperate each artist with each line. Also, enter the max number of songs you would like to get from each artist. </p>
+                </div>
+                <div className="input-box">
+                    <TextField
+                    id="standard-textarea"
+                    label="Artists"
+                    placeholder="Placeholder"
+                    multiline
+                    variant="standard"
+                    />
+
+                    <TextField
+                    id="outlined-number"
+                    label="Max Number of Songs"
+                    type="number"
+                    defaultValue="6"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}/>
+                </div>
+
+                <div className="setup-button-group">
+                    <Button variant="contained"color="success" size="large">
+                    Play
+                    </Button>
+
+                    <Button variant="contained" size="large" color="error">
+                    Quit
+                    </Button>
+                </div>
+        </div>
+        </div>
+    )
+}
+
+export default Setup;

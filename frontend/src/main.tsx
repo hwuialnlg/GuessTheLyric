@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
 import './App.css';
 import './index.css'
 import {
@@ -10,6 +9,7 @@ import {
 import Home from './Home.tsx';
 import Gameplay from './Gameplay.tsx';
 import About from './About.tsx';
+import Setup from './Setup.tsx';
 
 // https://reactrouter.com/en/main/start/tutorial
 
@@ -32,6 +32,11 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About/>,
+  },
+
+  {
+    path: "/setup",
+    element: <Setup/>,
   },
 
 ]);

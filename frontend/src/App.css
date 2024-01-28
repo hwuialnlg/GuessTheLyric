@@ -96,3 +96,37 @@
   flex-direction: column;
 }
 
+
+
+.input-box{
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.setup-button-group{
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+
+}
+
+.set-up-wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;}
+
+.set-up-content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.set-up-artist-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
