@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 function Setup(){
     const [artists, setArtists] = useState("");
-    const [maxSongs, setMaxSongs] = useState("6");
+    const [maxSongs, setMaxSongs] = useState("10");
 
     const handleArtists = (e: any) => {
         setArtists(e.target.value);
