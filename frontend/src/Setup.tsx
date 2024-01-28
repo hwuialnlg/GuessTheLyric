@@ -20,7 +20,7 @@ function Setup(){
         let artistArray = artists.split("\n");
 
         try {
-            const response = await axios.post('http://127.0.0.1:5000/lyrics', { message: artistArray });
+            const response = await axios.post('http://127.0.0.1:5000/lyrics', { message: [artistArray, maxSongs]});
             let serverResponse = response.data.response;
             console.log(serverResponse);
           } catch (error) {

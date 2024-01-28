@@ -58,6 +58,7 @@ def get_game_lyrics(artist: str, lyrics: list[str], song_name: str) -> tuple:
     if lyrics != []:
 
         lyric_str_len = 0
+        temp_lyric = None
 
         while lyric_str_len <= 2:
             i = random.randint(0, len(lyrics)-1)

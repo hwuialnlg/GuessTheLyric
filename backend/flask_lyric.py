@@ -15,9 +15,9 @@ def send_data():
     print(receive)
 
     big_data = []
-
-    if len(list(receive) == 1):
-        artist = list(receive)[0]
+# [['Nav', 'The Weekend'], '6']
+    if len(receive[0]) == 1:
+        artist = receive[0][0]
         songs = search_by_artist(artist)
 
         for song in songs:
