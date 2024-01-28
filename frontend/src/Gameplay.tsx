@@ -1,5 +1,6 @@
 import HomeIcon from '@mui/icons-material/Home';
 import TextField from '@mui/material/TextField';
+import { useEffect, useState } from 'react';
 
 function Gameplay(){
     return (
@@ -13,13 +14,28 @@ function Gameplay(){
 }
 
 function GameplayNavBar(){
-    let counter = 10;
+    
+    const [counter, setCounter] = useState(10);
     let lyric = "Trust Me Bro";
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCounter(counter - 1);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [counter]);
+
+    if (counter === 0) {
+        setCounter(10);
+      }
+
     return (
         <div className='gameplay-wrapper'>
             <div className='gameplay-navbar'>
                 <div className='counter-icon'>
-                    <p className='green'>{counter}</p>
+                    {/* https://stackoverflow.com/a/51915955/21989952 */}
+                    <p className='green'>{counter > 0 ? (counter < 10 ? "0" + counter : counter) : "00"}</p>
                 </div>
                 <p className='green'>Guess The Lyric</p>
                 <HomeIcon sx={{ fontSize: 70 }} className='home-icon white'/>
