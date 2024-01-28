@@ -53,7 +53,6 @@ def get_game_lyrics(lyrics: list) -> str:
             
             lyric_str_len = len(temp_lyric.split())
 
-
         if len(lyric_str_len) == 3 or len(lyric_str_len) == 4:
 
             index = which_chunk(1, lyric_str_len)
@@ -66,7 +65,7 @@ def get_game_lyrics(lyrics: list) -> str:
 
             index = _randomness(6, temp_lyric)
 
-    return index
+    return (temp_lyric, index)
 
 
 def _randomness(size_str, string):
