@@ -131,8 +131,42 @@
   align-items: center;
 }
 
-.aboutUsContent {
+/* .aboutUsContent {
   display: flex;
   flex-direction: column;
   align-items: center;
+} */
+
+.mainLayer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.topLayer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#EDEDED;
+  background-color: #030303;
+  height: 25vh;
+  width: 100vw;
+  font-size: xx-large;
+}
+
+.bottomLayer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;  
+}
+
+.usJPG {
+  width: 50vw;
+  height: 40vh;
+}
+
+.aboutUs {
+  width: 50vw;
 }
