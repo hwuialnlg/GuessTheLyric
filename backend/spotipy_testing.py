@@ -6,7 +6,6 @@ class TestSearchingCases(unittest.TestCase):
         self.assertTrue(len(search_by_artist('DPR IAN')) <= 10)
         self.assertTrue(len(search_by_artist('keshi')) <= 10)
         self.assertTrue(len(search_by_artist('NewJeans')) <= 10)
-<<<<<<< HEAD
         self.assertTrue(len(search_by_artist('fake name')) <= 10)
     
     def test_search_1_valid_artist_gets_results(self):
@@ -95,11 +94,6 @@ class TestSearchingCases(unittest.TestCase):
             assert False # Should have raised SpotifyException
         except:
             pass
-=======
-    
-    def test_search_3_artist_max_default_10_results_each(self):
-        self.assertTrue(len(search_by_x_artists(('DPR IAN', 'keshi', 'NewJeans'))) <= 30)
->>>>>>> 695a641 (Started unittesting search functions)
 
 if __name__=='__main__':
 	unittest.main()
