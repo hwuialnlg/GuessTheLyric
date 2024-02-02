@@ -20,18 +20,32 @@ def send_lyric_data():
 
     if len(receive[0]) == 1:
         artist = receive[0][0]
-        songs = search_by_artist(artist)
+        
+        songs = search_by_artist(artist, receive[1])
 
+        # print(songs)
         # img = get_artist_pic(artist)
 
+        # print(len(songs))
+        # print(songs)
+
         for song, artist in songs:
-            big_data.append(get_game_lyrics(artist, get_lyrics(artist, song), song))
+            # print(song)
+            lyrics = get_lyrics(artist, song)
+            if lyrics == -1:
+                continue
+            big_data.append(get_game_lyrics(artist, lyrics, song))
 
     else:
-        lst_of_tuple = search_by_x_artists(tuple(receive[0]))
+        lst_of_tuple = search_by_x_artists(tuple(receive[0]), receive[1])
+
+        # print(lst_of_tuple)
 
         for song, artist in lst_of_tuple:
-            big_data.append(get_game_lyrics(artist, get_lyrics(artist, song), song))
+            lyrics = get_lyrics(artist, song)
+            if lyrics == -1:
+                continue
+            big_data.append(get_game_lyrics(artist, lyrics, song))
     
 
     return jsonify({'response': big_data})

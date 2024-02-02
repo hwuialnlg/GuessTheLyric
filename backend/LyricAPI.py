@@ -17,6 +17,8 @@ def get_lyrics(artist: str, song_name: str) -> list:
     Processes lyrics and whitespaces
     '''
     lyrics = []
+    
+    print(artist)
 
     r = requests.get(f"https://api.lyrics.ovh/v1/{artist}/{song_name}")
 
@@ -36,7 +38,9 @@ def get_lyrics(artist: str, song_name: str) -> list:
         for i in range(len(lyrics)):
             lyrics[i] = lyrics[i].rstrip()
     
-    return lyrics
+        return lyrics
+    
+    return -1
 
 
 def get_game_lyrics(artist: str, lyrics: list[str], song_name: str) -> tuple:
@@ -55,35 +59,42 @@ def get_game_lyrics(artist: str, lyrics: list[str], song_name: str) -> tuple:
     the helper function to return necessary data for the game.
     
     '''
+
+    lyric_str_len = 0
+
+    temp_lyric = None
+
     if lyrics != []:
+        lyrics.pop(0)
 
-        lyric_str_len = 0
+    # print(len(lyrics))
+    # print(lyrics)
 
-        temp_lyric = None
+    while lyric_str_len <= 2:
+        i = random.randint(0, len(lyrics)-1)
+        # print(i)
 
-        while lyric_str_len <= 2:
-            i = random.randint(0, len(lyrics)-1)
+        temp_lyric = lyrics[i]
 
-            temp_lyric = lyrics[i]
+        for e in temp_lyric:
+            if e in ("<>?/\][]{}+-=;.,"):
+                temp_lyric.replace(e, "")
+        
+        lyric_str_len = len(temp_lyric.split())
+        # print(lyric_str_len)
 
-            for e in temp_lyric:
-                if e in ("<>?/\][]{}+-=;.,"):
-                    temp_lyric.replace(e, "")
-            
-            lyric_str_len = len(temp_lyric.split())
+    if lyric_str_len == 3 or lyric_str_len == 4:
+        # print(3, 4)
+        index = _which_chunk(1, temp_lyric)
 
-        if lyric_str_len == 3 or lyric_str_len == 4:
-            # print(3, 4)
-            index = _which_chunk(1, temp_lyric)
+    elif lyric_str_len == 5:
+        # print(5)
+        index = _randomness(5, temp_lyric)
+        # print(index)
 
-        elif lyric_str_len == 5:
-            # print(5)
-            index = _randomness(5, temp_lyric)
-            # print(index)
-
-        elif lyric_str_len >= 6:
-            # print(6)
-            index = _randomness(6, temp_lyric)
+    elif lyric_str_len >= 6:
+        # print(6)
+        index = _randomness(6, temp_lyric)
 
     # print(lyrics) 
             
