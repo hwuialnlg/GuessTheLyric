@@ -8,7 +8,7 @@ Built for Irvine Hacks 2024
 
 
 ## Inspiration
-
+As music enthusiasts, our group wanted to connect our love of music to something unique we never made before. After brainstorming for a bit, once Andy mentioned the idea of guessing lyrics, we all became excited with the idea and started Guess The Lyric! 
 ## What it does
 Guess The Lyric is a game that allows a user to input their favorite artists from Spotify and get tested on random lyrics from them. Users can compete to earn the highest score on the leaderboard or earn bragging rights to their friends. 
 
